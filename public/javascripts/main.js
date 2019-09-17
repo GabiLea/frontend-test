@@ -23,24 +23,26 @@ function carregarGrid(dataRaking) {
 
   for (i = 0; i < dataRaking.length; i++) {
     var item = dataRaking[i];
-    var dataWrap = "<div class='data-wrap'>" +
+    var dataWrap = "<li class='data-wrap' tabindex='0' role='button'>" +
       "<div class='data-img'>" +
-      "<img class='img-circle' src='" + item.urlImg + "' />" +
-      "<span class='badge'>" + (i + 1) + "</span>" +
+      "<img class='img-circle' src='" + item.urlImg + "' tabindex='0' alt='foto, participante, " + item.name + ".' />" +
+      "<span class='badge' aria-label='número do ranking' tabindex='0'>" + (i + 1) + "</span>" +
       "</div>" +
       "<div class='data-details'>" +
-      "<span class='name'>" + item.name + "</span>" +
-      "<span class='desc'>" + item.description + "</span>" +
+      "<span class='name' tabindex='0'>" + item.name + "</span>" +
+      "<span class='desc' tabindex='0'>" + item.description + "</span>" +
       "</div>" +
-      "<div class='balloon d-none'>" +
-      "<div class='like'><span>Gostam</span>" +
-      "<span class='percent-like' > " + item.positive + " %</span ></div> " +
-      "<div class='deslike'><span>Não gostam</span>" +
-      "<span class='percent-deslike' > " + item.negative + " %</span ></div> " +
+      "<div class='balloon d-none' tabindex='0' role='complementary'>" +
+      "<div class='like'><span tabindex='0'>Gostam</span>" +
+      "<span class='percent-like' role='complementary' tabindex='0'" +
+      "aria-label='porcentagem positiva para, " + item.name + "' > " + item.positive + " %</span></div> " +
+      "<div class='deslike'><span tabindex='0'>Não gostam</span>" +
+      "<span class='percent-deslike' role='complementary' tabindex='0'" +
+      "aria-label='porcentagem negativa para, " + item.name + "'> " + item.negative + " %</span></div> " +
       "</div> " +
-      "</div>"
+      "</li>"
 
-    $('.grid-ranking').append(dataWrap);
+    $('.list-ranking').append(dataWrap);
   }
 }
 
